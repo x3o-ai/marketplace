@@ -8,6 +8,40 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Base UI Colors for Components
+        border: "hsl(214.3 31.8% 91.4%)",
+        input: "hsl(214.3 31.8% 91.4%)",
+        ring: "#ef4444",
+        background: "#000000",
+        foreground: "#ffffff",
+        primary: {
+          DEFAULT: "#ef4444",
+          foreground: "#ffffff",
+        },
+        secondary: {
+          DEFAULT: "#1f2937",
+          foreground: "#ffffff",
+        },
+        destructive: {
+          DEFAULT: "#dc2626",
+          foreground: "#ffffff",
+        },
+        muted: {
+          DEFAULT: "#374151",
+          foreground: "#d1d5db",
+        },
+        accent: {
+          DEFAULT: "#374151",
+          foreground: "#ffffff",
+        },
+        popover: {
+          DEFAULT: "#000000",
+          foreground: "#ffffff",
+        },
+        card: {
+          DEFAULT: "rgba(255, 255, 255, 0.02)",
+          foreground: "#ffffff",
+        },
         // x3o Dramatic Intensity Red Gradient Colors
         'x3o-red': {
           50: '#fef2f2',
