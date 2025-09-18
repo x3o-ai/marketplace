@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* x3o.ai Dramatic Intensity Design System - Integrated */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================================
+   X3O DRAMATIC INTENSITY COLOR SYSTEM
+   ============================================================================ */
+
+:root {
+  /* Primary Dramatic Red Gradient */
+  --x3o-dark-red: #7f1d1d;     /* Dramatic dark base */
+  --x3o-blood-red: #991b1b;    /* Deep intensity */
+  --x3o-warning-red: #b91c1c;  /* Alert level */
+  --x3o-danger-red: #dc2626;   /* Critical urgency */
+  --x3o-bright-red: #ef4444;   /* Maximum impact */
+  --x3o-alert-red: #f87171;    /* High visibility */
+  
+  /* Automation Urgency Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--x3o-dark-red), var(--x3o-bright-red));
+  --gradient-intensity: linear-gradient(90deg, var(--x3o-dark-red), var(--x3o-danger-red), var(--x3o-bright-red));
+  --gradient-urgency: linear-gradient(45deg, var(--x3o-blood-red), var(--x3o-bright-red));
+  --gradient-cta: linear-gradient(135deg, var(--x3o-warning-red), var(--x3o-bright-red), var(--x3o-alert-red));
+}
+
+/* x3o.ai Mass Automation Marketplace Global Styles */
+
+:root {
+  --x3o-red: #ef4444;
+  --x3o-red-dark: #dc2626;
+  --oracle-blue: #3b82f6;
+  --sentinel-pink: #ec4899;
+  --sage-green: #10b981;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--x3o-red);
+  color: white;
+}
+
+/* Focus styles */
+.focus-visible:focus-visible {
+  outline: 2px solid var(--x3o-red);
+  outline-offset: 2px;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Trinity gradient animations */
+@keyframes trinityGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+  25% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  }
+  75% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+}
+
+.trinity-glow {
+  animation: trinityGlow 4s ease-in-out infinite;
+}
+
+/* Component base styles */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Enterprise-grade styling */
+.enterprise-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Product tier badges */
+.tier-flagship {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.tier-popular {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.tier-essential {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.tier-growth {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* Responsive design helpers */
+.container-x3o {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container-x3o {
+    padding: 0 1rem;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-hover {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  .trinity-glow,
+  .loading-shimmer {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

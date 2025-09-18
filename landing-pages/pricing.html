@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x3o.ai Pricing - Deploy Before Your Competitors Automate You Out</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* x3o Dramatic Intensity Red Gradient */
+            --x3o-dark-red: #7f1d1d;
+            --x3o-bright-red: #ef4444;
+            --x3o-danger-red: #dc2626;
+            --x3o-warning-red: #b91c1c;
+            --urgency-yellow: #fbbf24;
+            --success-green: #10b981;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #7f1d1d, #ef4444);
+            --gradient-intensity: linear-gradient(90deg, #7f1d1d, #dc2626, #ef4444);
+            --gradient-cta: linear-gradient(135deg, #b91c1c, #ef4444, #f87171);
+            --gradient-threat: linear-gradient(135deg, #7f1d1d, #991b1b, #000000);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 30%, rgba(127, 29, 29, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
+                        linear-gradient(135deg, #000000, #1f2937, #7f1d1d);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .urgent-header {
+            background: var(--gradient-intensity);
+            color: var(--urgency-yellow);
+            padding: 12px 24px;
+            text-align: center;
+            font-weight: 700;
+            animation: urgentGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes urgentGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.8); }
+        }
+
+        .pricing-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .pricing-hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 32px;
+            line-height: 0.9;
+        }
+
+        .title-automate {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-prices {
+            background: linear-gradient(135deg, #ef4444, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--x3o-bright-red);
+            box-shadow: 0 30px 60px rgba(127, 29, 29, 0.4);
+        }
+
+        .pricing-card.flagship {
+            border: 3px solid var(--x3o-bright-red);
+            transform: scale(1.05);
+            background: rgba(127, 29, 29, 0.1);
+        }
+
+        .pricing-tier {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .product-name {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .product-tagline {
+            font-size: 18px;
+            color: var(--x3o-bright-red);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .price-display {
+            margin-bottom: 16px;
+        }
+
+        .price-amount {
+            font-size: 60px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-period {
+            font-size: 20px;
+            color: #9ca3af;
+        }
+
+        .cost-comparison {
+            background: rgba(127, 29, 29, 0.2);
+            border: 1px solid var(--x3o-danger-red);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 32px;
+        }
+
+        .comparison-title {
+            color: var(--x3o-bright-red);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .savings-amount {
+            color: var(--success-green);
+            font-weight: 900;
+            font-size: 24px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #d1d5db;
+        }
+
+        .feature-check {
+            color: var(--success-green);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .deploy-button {
+            width: 100%;
+            background: var(--gradient-cta);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .deploy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(127, 29, 29, 0.4);
+        }
+
+        .guarantee-text {
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        /* Enterprise Section */
+        .enterprise-section {
+            background: var(--gradient-threat);
+            border: 3px solid var(--urgency-yellow);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            animation: competitiveThreat 4s ease-in-out infinite;
+        }
+
+        @keyframes competitiveThreat {
+            0%, 100% {
+                border-color: var(--urgency-yellow);
+                box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+            }
+            50% {
+                border-color: var(--x3o-bright-red);
+                box-shadow: 0 0 40px rgba(239, 68, 68, 0.5);
+            }
+        }
+
+        .enterprise-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .enterprise-subtitle {
+            font-size: 20px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+        }
+
+        .contact-button {
+            background: var(--gradient-intensity);
+            color: white;
+            border: 3px solid var(--urgency-yellow);
+            padding: 24px 48px;
+            border-radius: 16px;
+            font-size: 20px;
+            font-weight: 900;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.flagship {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- URGENT HEADER -->
+    <div class="urgent-header">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>⚠️</span>
+            <span>🚨 PRICING PROTECTION ENDING: Early adopter rates expire in 47 days</span>
+            <span>⚠️</span>
+        </div>
+    </div>
+
+    <!-- PRICING HERO -->
+    <div class="pricing-container">
+        <div class="pricing-hero">
+            <h1 class="hero-title">
+                <span class="title-automate">Automate Before</span><br>
+                <span class="title-prices">Prices Skyrocket</span><br>
+                <span style="color: #6b7280;">With Demand</span>
+            </h1>
+            
+            <p style="font-size: 24px; color: #d1d5db; max-width: 800px; margin: 0 auto 32px;">
+                Early automation adopters lock in <span style="color: var(--success-green); font-weight: 700;">lifetime pricing protection</span>. 
+                When automation becomes standard (Q2 2025), prices will <span style="color: var(--x3o-bright-red); font-weight: 700;">triple</span>.
+            </p>
+
+            <div style="background: rgba(251, 191, 36, 0.2); border: 2px solid var(--urgency-yellow); border-radius: 16px; padding: 24px; max-width: 900px; margin: 0 auto;">
+                <div style="color: var(--urgency-yellow); font-weight: 700; margin-bottom: 8px;">💰 EARLY ADOPTER PRICING PROTECTION</div>
+                <div style="color: #d1d5db;">
+                    <span style="color: white; font-weight: 700;">First 100 customers</span> get lifetime rates. 
+                    When competitors realize they need automation (estimated Q2 2025), 
+                    <span style="color: var(--urgency-yellow); font-weight: 700;"> prices increase 300%</span> due to demand surge.
+                </div>
+            </div>
+        </div>
+
+        <!-- PRICING CARDS -->
+        <div class="pricing-grid">
+            <!-- AGENTTRINITY PRO - FLAGSHIP */}
+            <div class="pricing-card flagship">
+                <div class="pricing-tier">🏆 FLAGSHIP</div>
+                
+                <div class="pricing-header">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 40px;">🧠</div>
+                    <h2 class="product-name">AgentTrinity Pro</h2>
+                    <div class="product-tagline">Replace Entire Analytics Department</div>
+                    
+                    <div class="price-display">
+                        <span class="price-amount">$2,499</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="comparison-title">VS MANUAL DEPARTMENT COSTS:</div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: #9ca3af;">Manual Analytics Team:</span>
+                            <span style="color: var(--x3o-bright-red); font-weight: 700;">$200K/month</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: #9ca3af;">AgentTrinity Pro:</span>
+                            <span style="color: var(--success-green); font-weight: 700;">$2,499/month</span>
+                        </div>
+                        <div style="border-top: 1px solid var(--x3o-danger-red); padding-top: 8px; display: flex; justify-content: space-between;">
+                            <span style="color: white; font-weight: 700;">MONTHLY SAVINGS:</span>
+                            <span class="savings-amount">$197K+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span class="feature-check">⚡</span> Oracle: Replaces 20+ data analysts</li>
+                    <li><span class="feature-check">⚡</span> Sentinel: Automates all monitoring & alerts</li>
+                    <li><span class="feature-check">⚡</span> Sage: Optimizes every business operation</li>
+                    <li><span class="feature-check">⚡</span> 100% explainable AI decisions</li>
+                    <li><span class="feature-check">⚡</span> Enterprise security & compliance</li>
+                    <li><span class="feature-check">⚡</span> 24/7 automation that never sleeps</li>
+                    <li><span class="feature-check">⚡</span> Custom integrations & workflows</li>
+                    <li><span class="feature-check">⚡</span> Priority support & optimization</li>
+                </ul>
+
+                <button class="deploy-button">
+                    🚨 DEPLOY BEFORE COMPETITORS - $197K SAVINGS
+                </button>
+                
+                <div class="guarantee-text">
+                    ⚡ 15-min deployment • 🛡️ 90-day guarantee • 💰 Lifetime pricing lock
+                </div>
+            </div>
+
+            <!-- ORACLE TRINITY ANALYTICS */}
+            <div class="pricing-card">
+                <div class="pricing-tier">🔥 POPULAR</div>
+                
+                <div class="pricing-header">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7f1d1d, #3b82f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 40px;">📊</div>
+                    <h2 class="product-name">OracleTrinity Analytics</h2>
+                    <div class="product-tagline">Eliminate Data Team Overnight</div>
+                    
+                    <div class="price-display">
+                        <span class="price-amount">$699</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="comparison-title">AUTOMATION IMPACT:</div>
+                        <div style="color: #d1d5db; font-size: 14px;">
+                            Replaces 15+ analysts • Works 24/7 • Processes data 
+                            <span style="color: #06b6d4; font-weight: 700;">1000x faster</span> than humans
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <span style="color: white; font-weight: 700;">Monthly Savings:</span>
+                            <span class="savings-amount">$149K+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span class="feature-check">⚡</span> Oracle Agent specialization</li>
+                    <li><span class="feature-check">⚡</span> Advanced analytics dashboard</li>
+                    <li><span class="feature-check">⚡</span> Predictive modeling suite</li>
+                    <li><span class="feature-check">⚡</span> Real-time data processing</li>
+                    <li><span class="feature-check">⚡</span> Custom report generation</li>
+                    <li><span class="feature-check">⚡</span> SHAP explainability</li>
+                </ul>
+
+                <button class="deploy-button">
+                    ⚡ AUTOMATE ANALYTICS - $149K SAVINGS
+                </button>
+                
+                <div class="guarantee-text">
+                    ⚡ 15-min setup • 🎯 1000x faster than manual
+                </div>
+            </div>
+
+            <!-- CREATIVE TRINITY STUDIO */}
+            <div class="pricing-card">
+                <div class="pricing-tier">🎨 STUDIO</div>
+                
+                <div class="pricing-header">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7f1d1d, #ec4899); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 40px;">🎨</div>
+                    <h2 class="product-name">CreativeTrinity Studio</h2>
+                    <div class="product-tagline">Replace Marketing Department</div>
+                    
+                    <div class="price-display">
+                        <span class="price-amount">$399</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="comparison-title">AUTOMATION IMPACT:</div>
+                        <div style="color: #d1d5db; font-size: 14px;">
+                            Replaces 10+ marketers • Creates unlimited content • 
+                            <span style="color: #ec4899; font-weight: 700;">24/7 campaigns</span>
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <span style="color: white; font-weight: 700;">Monthly Savings:</span>
+                            <span class="savings-amount">$79K+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="features-list">
+                    <li><span class="feature-check">⚡</span> Complete creative automation</li>
+                    <li><span class="feature-check">⚡</span> Brand voice consistency</li>
+                    <li><span class="feature-check">⚡</span> Multi-format content generation</li>
+                    <li><span class="feature-check">⚡</span> Campaign optimization</li>
+                    <li><span class="feature-check">⚡</span> A/B testing automation</li>
+                    <li><span class="feature-check">⚡</span> Social media management</li>
+                </ul>
+
+                <button class="deploy-button">
+                    🎨 AUTOMATE MARKETING - $79K SAVINGS
+                </button>
+                
+                <div class="guarantee-text">
+                    ⚡ Unlimited content • 🎯 Brand consistent
+                </div>
+            </div>
+        </div>
+
+        <!-- ENTERPRISE CUSTOM TRINITY */}
+        <div class="enterprise-section">
+            <h2 class="enterprise-title">
+                Enterprise Custom Trinity<br>
+                <span style="color: var(--urgency-yellow);">Unlimited Automation</span>
+            </h2>
+            
+            <p class="enterprise-subtitle">
+                Replace entire departments with custom Trinity Agent configurations. 
+                <span style="color: var(--x3o-bright-red); font-weight: 700;">Deploy before competitors</span> and 
+                <span style="color: var(--urgency-yellow); font-weight: 700;">dominate your industry</span>.
+            </p>
+
+            <button class="contact-button">
+                🏆 CONTACT ENTERPRISE SALES - UNLIMITED SAVINGS
+            </button>
+            
+            <div style="margin-top: 24px; color: var(--urgency-yellow); font-size: 16px; font-weight: 700;">
+                ⚠️ Custom pricing based on departments replaced • ROI guarantee • Priority deployment
+            </div>
+        </div>
+
+        <!-- FINAL URGENCY CTA */}
+        <div style="text-align: center; margin-top: 80px; background: var(--gradient-threat); border: 3px solid var(--x3o-bright-red); border-radius: 24px; padding: 48px;">
+            <h2 style="font-size: 48px; font-weight: 900; color: white; margin-bottom: 24px;">
+                <span style="color: var(--x3o-bright-red);">Automate Now</span><br>
+                or <span style="color: #6b7280;">Pay Triple Later</span>
+            </h2>
+            
+            <p style="font-size: 20px; color: #d1d5db; margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Don't wait for "perfect timing." <span style="color: var(--x3o-bright-red); font-weight: 700;">Deploy Trinity Agents now</span> at today's prices, 
+                or <span style="color: var(--urgency-yellow); font-weight: 700;">pay 300% more</span> when automation becomes standard.
+            </p>
+
+            <button style="background: var(--gradient-intensity); color: white; border: 3px solid var(--urgency-yellow); padding: 32px 64px; border-radius: 20px; font-size: 24px; font-weight: 900; cursor: pointer; text-transform: uppercase; animation: urgentGlow 2s ease-in-out infinite;">
+                🚀 LOCK IN LIFETIME PRICING NOW
+            </button>
+            
+            <div style="margin-top: 24px; color: var(--urgency-yellow); font-size: 14px; font-weight: 700;">
+                ⏰ Only 53 lifetime pricing slots remaining
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pricing protection countdown
+        let daysLeft = 47;
+        function updatePricingCountdown() {
+            const headers = document.querySelectorAll('.urgent-header span:nth-child(2)');
+            headers.forEach(header => {
+                header.textContent = `🚨 PRICING PROTECTION ENDING: Early adopter rates expire in ${daysLeft} days`;
+            });
+            daysLeft = Math.max(1, daysLeft - Math.random() * 0.1);
+        }
+
+        setInterval(updatePricingCountdown, 30000);
+
+        // CTA interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent.includes('DEPLOY') || btn.textContent.includes('AUTOMATE')) {
+                    alert('🚨 TRINITY AGENT DEPLOYMENT INITIATED!\n\n✅ Lifetime pricing protection locked\n💰 Massive savings confirmed\n⚡ 15-minute setup starting\n🏆 Competitive advantage secured');
+                }
+            });
+        });
+
+        console.log('💰 x3o.ai Pricing Page LOADED with dramatic intensity!');
+        console.log('🔒 Lifetime pricing protection messaging ACTIVE');
+        console.log('⚡ Maximum conversion urgency APPLIED');
+    </script>
+</body>
+</html>

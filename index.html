@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x3o.ai - Deploy Before Your Competitors Automate You Out of Business</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* x3o Dramatic Intensity Red Gradient */
+            --x3o-dark-red: #7f1d1d;
+            --x3o-bright-red: #ef4444;
+            --x3o-danger-red: #dc2626;
+            --x3o-warning-red: #b91c1c;
+            --urgency-yellow: #fbbf24;
+            --success-green: #10b981;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #7f1d1d, #ef4444);
+            --gradient-intensity: linear-gradient(90deg, #7f1d1d, #dc2626, #ef4444);
+            --gradient-urgency: linear-gradient(45deg, #991b1b, #ef4444);
+            --gradient-cta: linear-gradient(135deg, #b91c1c, #ef4444, #f87171);
+            --gradient-threat: linear-gradient(135deg, #7f1d1d, #991b1b, #000000);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at 20% 30%, rgba(127, 29, 29, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
+                        linear-gradient(135deg, #000000, #1f2937, #7f1d1d);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* URGENT HEADER */
+        .urgent-header {
+            background: var(--gradient-intensity);
+            color: var(--urgency-yellow);
+            padding: 12px 24px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            animation: urgentGlow 3s ease-in-out infinite;
+            border-bottom: 2px solid var(--urgency-yellow);
+        }
+
+        @keyframes urgentGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.8); }
+        }
+
+        /* NAVIGATION */
+        .nav-header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .x3o-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .urgency-badge {
+            background: rgba(127, 29, 29, 0.3);
+            border: 1px solid var(--x3o-bright-red);
+            color: var(--urgency-yellow);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: urgencyPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            text-align: center;
+            padding: 80px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .countdown-timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(127, 29, 29, 0.2);
+            border: 2px solid var(--x3o-bright-red);
+            border-radius: 40px;
+            padding: 12px 24px;
+            margin-bottom: 32px;
+            color: var(--urgency-yellow);
+            font-weight: 700;
+            animation: urgentGlow 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.025em;
+            margin-bottom: 32px;
+        }
+
+        .title-deploy {
+            display: block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-competitors {
+            display: block;
+            color: #ffffff;
+        }
+
+        .title-automate {
+            display: block;
+            background: linear-gradient(135deg, #ef4444, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-business {
+            display: block;
+            color: #9ca3af;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            color: #d1d5db;
+            max-width: 900px;
+            margin: 0 auto 48px;
+            line-height: 1.4;
+        }
+
+        .threat-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+
+        .stat-card {
+            background: rgba(127, 29, 29, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--x3o-bright-red);
+            box-shadow: 0 20px 40px rgba(127, 29, 29, 0.3);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #d1d5db;
+            margin-bottom: 4px;
+        }
+
+        .stat-threat {
+            font-size: 12px;
+            color: var(--x3o-bright-red);
+            font-weight: 600;
+        }
+
+        /* PRIMARY CTA BUTTON */
+        .x3o-btn-primary {
+            background: var(--gradient-cta);
+            color: white;
+            border: none;
+            padding: 24px 48px;
+            border-radius: 16px;
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(127, 29, 29, 0.3);
+            animation: urgencyPulse 2s ease-in-out infinite;
+            border: 2px solid var(--urgency-yellow);
+        }
+
+        .x3o-btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(127, 29, 29, 0.5);
+            background: var(--gradient-urgency);
+        }
+
+        /* COMPETITIVE THREAT SECTION */
+        .threat-section {
+            background: var(--gradient-threat);
+            border: 2px solid var(--x3o-danger-red);
+            border-radius: 24px;
+            padding: 48px;
+            margin: 80px auto;
+            max-width: 1200px;
+            animation: competitiveThreat 3s ease-in-out infinite;
+        }
+
+        @keyframes competitiveThreat {
+            0%, 100% {
+                border-color: var(--x3o-danger-red);
+                box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+            }
+            50% {
+                border-color: var(--urgency-yellow);
+                box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+            }
+        }
+
+        .threat-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .threat-highlight {
+            color: var(--x3o-bright-red);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .comparison-card {
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid;
+        }
+
+        .without-x3o {
+            background: rgba(127, 29, 29, 0.3);
+            border-color: var(--x3o-bright-red);
+        }
+
+        .with-x3o {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--success-green);
+        }
+
+        .comparison-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #d1d5db;
+        }
+
+        .comparison-icon {
+            font-size: 18px;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        /* TRINITY PRODUCTS */
+        .products-section {
+            padding: 80px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .products-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #d1d5db;
+            margin-bottom: 64px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-intensity);
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--x3o-bright-red);
+            box-shadow: 0 30px 60px rgba(127, 29, 29, 0.4);
+        }
+
+        .product-tier {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .product-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .product-tagline {
+            font-size: 16px;
+            color: var(--x3o-bright-red);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .product-description {
+            font-size: 15px;
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        .feature-check {
+            color: var(--success-green);
+            font-weight: 900;
+        }
+
+        .product-pricing {
+            display: flex;
+            items-center: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(239, 68, 68, 0.3);
+            padding-top: 24px;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: #9ca3af;
+        }
+
+        .deploy-btn {
+            background: var(--gradient-cta);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .deploy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(127, 29, 29, 0.4);
+        }
+
+        /* FINAL CTA SECTION */
+        .final-cta {
+            text-align: center;
+            padding: 80px 24px;
+            background: var(--gradient-threat);
+            border: 3px solid var(--x3o-bright-red);
+            border-radius: 24px;
+            margin: 80px auto;
+            max-width: 1200px;
+        }
+
+        .final-title {
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        .final-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-btn {
+            background: var(--gradient-intensity);
+            color: white;
+            border: 3px solid var(--urgency-yellow);
+            padding: 32px 64px;
+            border-radius: 20px;
+            font-size: 28px;
+            font-weight: 900;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            animation: urgencyPulse 1.5s ease-in-out infinite;
+            margin-bottom: 24px;
+        }
+
+        .final-guarantee {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .final-warning {
+            color: var(--x3o-bright-red);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .final-btn {
+                padding: 24px 32px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- URGENT HEADER -->
+    <div class="urgent-header">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>⚠️</span>
+            <span>🚨 AUTOMATION WAVE ALERT: 40% of jobs will be automated by 2030</span>
+            <span>⚠️</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-header">
+        <div class="nav-content">
+            <div class="x3o-logo">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">x3o</div>
+            </div>
+            <div class="nav-actions">
+                <div class="urgency-badge">⚡ AHEAD OF THE WAVE</div>
+                <button style="background: var(--gradient-primary); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                    Deploy Now - 15 Min Setup
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <!-- COUNTDOWN TIMER -->
+        <div class="countdown-timer">
+            <span>🕐</span>
+            <span>Competition Accelerating: 47d 12h 34m until Q1 automation surge</span>
+        </div>
+
+        <!-- FEAR-DRIVEN HEADLINE -->
+        <h1 class="hero-title">
+            <span class="title-deploy">Deploy Before</span>
+            <span class="title-competitors">Your Competitors</span>
+            <span class="title-automate">Automate You Out</span>
+            <span class="title-business">of Business</span>
+        </h1>
+
+        <!-- URGENCY SUBTITLE -->
+        <p class="hero-subtitle">
+            <span style="color: var(--x3o-bright-red); font-weight: 700;">The automation wave is here.</span> 
+            Companies deploying AI first will 
+            <span style="color: var(--urgency-yellow); font-weight: 700;">dominate their markets</span> 
+            while others struggle to survive. 
+            <span style="color: white; font-weight: 700;">Don't be left behind.</span>
+        </p>
+
+        <!-- THREAT STATISTICS -->
+        <div class="threat-stats">
+            <div class="stat-card">
+                <div class="stat-value">40%</div>
+                <div class="stat-label">Jobs Automatable by 2030</div>
+                <div class="stat-threat">Your department could be next</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value">85%</div>
+                <div class="stat-label">Cost Reduction Possible</div>
+                <div class="stat-threat">While competitors stay manual</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value">15min</div>
+                <div class="stat-label">x3o Deployment Time</div>
+                <div class="stat-threat">vs 6+ months traditional</div>
+            </div>
+        </div>
+
+        <!-- PRIMARY CTA -->
+        <button class="x3o-btn-primary">
+            ⚡ AUTOMATE NOW - BEFORE IT'S TOO LATE
+        </button>
+        
+        <div style="margin-top: 24px; color: #d1d5db; font-size: 16px;">
+            ⚡ 15-minute deployment • 💥 Immediate competitive advantage • 🛡️ Enterprise-grade security
+        </div>
+        
+        <div style="margin-top: 16px; color: var(--x3o-bright-red); font-size: 14px; font-weight: 700;">
+            ⚠️ WARNING: Competitors using Trinity Agents report 40-60% cost advantages
+        </div>
+    </div>
+
+    <!-- COMPETITIVE THREAT SECTION -->
+    <div class="threat-section">
+        <div style="text-align: center; color: var(--urgency-yellow); font-weight: 700; font-size: 18px; margin-bottom: 24px;">
+            🚨 COMPETITIVE THREAT ANALYSIS
+        </div>
+        
+        <h2 class="threat-title">
+            While You Read This,<br>
+            <span class="threat-highlight">Your Competitors Are Automating</span>
+        </h2>
+        
+        <div class="comparison-grid">
+            <!-- WITHOUT X3O -->
+            <div class="comparison-card without-x3o">
+                <h3 class="comparison-title">
+                    <span class="comparison-icon" style="color: var(--x3o-bright-red);">⚠️</span>
+                    <span style="color: var(--x3o-bright-red);">WITHOUT x3o (You're Vulnerable)</span>
+                </h3>
+                <ul class="comparison-list">
+                    <li>
+                        <span class="comparison-icon" style="color: var(--x3o-bright-red);">✗</span>
+                        <span>Manual processes while competitors automate</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--x3o-bright-red);">✗</span>
+                        <span>$2M+ annual department costs vs $30K automation</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--x3o-bright-red);">✗</span>
+                        <span>6+ month implementation while market moves</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--x3o-bright-red);">✗</span>
+                        <span>Black box AI with no explanations</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--x3o-bright-red);">✗</span>
+                        <span>Falling behind automated competitors</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- WITH X3O -->
+            <div class="comparison-card with-x3o">
+                <h3 class="comparison-title">
+                    <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                    <span style="color: var(--success-green);">WITH x3o (You Dominate)</span>
+                </h3>
+                <ul class="comparison-list">
+                    <li>
+                        <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                        <span>Trinity Agents automate entire departments</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                        <span>85% cost reduction vs manual operations</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                        <span>15-minute deployment beats all competitors</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                        <span>100% explainable AI for enterprise trust</span>
+                    </li>
+                    <li>
+                        <span class="comparison-icon" style="color: var(--success-green);">✓</span>
+                        <span>Market leadership through automation advantage</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px; padding: 24px; background: rgba(251, 191, 36, 0.2); border: 1px solid var(--urgency-yellow); border-radius: 16px;">
+            <div style="color: var(--urgency-yellow); font-weight: 700; font-size: 18px; margin-bottom: 8px;">
+                ⚡ FIRST-MOVER ADVANTAGE WINDOW CLOSING
+            </div>
+            <div style="color: #d1d5db;">
+                Companies deploying automation NOW capture 40-60% cost advantages before competitors catch up.
+                <span style="color: white; font-weight: 700;"> The window won't stay open.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRINITY PRODUCTS SHOWCASE -->
+    <div class="products-section">
+        <h2 class="products-title">
+            Trinity Agents That Replace<br>
+            <span style="color: var(--x3o-bright-red);">Entire Departments</span>
+        </h2>
+        
+        <p class="products-subtitle">
+            While your competitors hire more humans, you deploy AI agents that work 24/7, 
+            <span style="color: var(--x3o-bright-red); font-weight: 700;">never take breaks</span>, and 
+            <span style="color: var(--urgency-yellow); font-weight: 700;">cost 95% less</span>.
+        </p>
+
+        <div class="products-grid">
+            <!-- AGENTTRINITY PRO -->
+            <div class="product-card">
+                <div class="product-tier">🏆 FLAGSHIP</div>
+                <div class="product-icon">🧠</div>
+                <h3 class="product-name">AgentTrinity Pro</h3>
+                <div class="product-tagline">Replace Your Entire Analytics Department</div>
+                <p class="product-description">
+                    Complete explainable AI with Oracle, Sentinel, and Sage agents. Full transparency in every decision with SHAP analysis and interactive explanations.
+                </p>
+                
+                <div style="background: rgba(127, 29, 29, 0.3); border: 1px solid var(--x3o-bright-red); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+                    <div style="color: var(--x3o-bright-red); font-weight: 700; font-size: 14px; margin-bottom: 8px;">⚠️ COMPETITIVE THREAT:</div>
+                    <div style="color: #d1d5db; font-size: 13px;">
+                        Companies with Trinity Agents process data <span style="color: var(--x3o-bright-red); font-weight: 700;">1000x faster</span> than manual teams. 
+                        Your analytics department becomes obsolete overnight.
+                    </div>
+                </div>
+
+                <ul class="product-features">
+                    <li><span class="feature-check">✓</span> Oracle: Replaces 20+ data analysts</li>
+                    <li><span class="feature-check">✓</span> Sentinel: Automates all monitoring</li>
+                    <li><span class="feature-check">✓</span> Sage: Optimizes every operation</li>
+                    <li><span class="feature-check">✓</span> 100% explainable decisions</li>
+                    <li><span class="feature-check">✓</span> Enterprise security & compliance</li>
+                </ul>
+
+                <div class="product-pricing">
+                    <div class="price-display">
+                        <span class="price-amount">$2,499</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <div style="text-align: right; font-size: 12px;">
+                        <div style="color: #9ca3af; text-decoration: line-through;">Manual: $200K+/month</div>
+                        <div style="color: var(--success-green); font-weight: 700;">Save $197K+/month</div>
+                    </div>
+                </div>
+                
+                <button class="deploy-btn" style="width: 100%; margin-top: 16px;">
+                    🚨 DEPLOY BEFORE COMPETITORS
+                </button>
+            </div>
+
+            <!-- ORACLE TRINITY -->
+            <div class="product-card">
+                <div class="product-tier">🔥 POPULAR</div>
+                <div class="product-icon">📊</div>
+                <h3 class="product-name">OracleTrinity Analytics</h3>
+                <div class="product-tagline">Eliminate Your Data Team Overnight</div>
+                <p class="product-description">
+                    Specialized Oracle-focused deployment for complex analytics, predictive modeling, and business intelligence with complete explainability.
+                </p>
+
+                <div style="background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; border-radius: 12px; padding: 12px; margin-bottom: 20px;">
+                    <div style="color: #60a5fa; font-weight: 700; font-size: 12px;">
+                        <span style="font-weight: 700;">AUTOMATION IMPACT:</span> Replaces 15+ analysts, 
+                        <span style="color: #3b82f6; font-weight: 700;"> works 24/7</span>, processes data 
+                        <span style="color: #06b6d4; font-weight: 700;">1000x faster</span>
+                    </div>
+                </div>
+
+                <ul class="product-features">
+                    <li><span class="feature-check">✓</span> Oracle Agent specialization</li>
+                    <li><span class="feature-check">✓</span> Advanced analytics dashboard</li>
+                    <li><span class="feature-check">✓</span> Predictive modeling suite</li>
+                    <li><span class="feature-check">✓</span> Real-time data processing</li>
+                    <li><span class="feature-check">✓</span> Custom report generation</li>
+                </ul>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 14px; color: #9ca3af; margin-bottom: 8px;">Manual Analytics Team vs OracleTrinity:</div>
+                    <div style="font-size: 14px; color: #d1d5db;">
+                        <span style="color: var(--x3o-bright-red);">$150K+/month</span> → 
+                        <span style="color: var(--success-green); font-weight: 700;">$699/month</span>
+                    </div>
+                    <div style="color: var(--success-green); font-weight: 700; font-size: 18px; margin-top: 8px;">
+                        Monthly Savings: $149K+
+                    </div>
+                </div>
+
+                <button class="deploy-btn" style="width: 100%;">
+                    ⚡ AUTOMATE ANALYTICS NOW
+                </button>
+            </div>
+
+            <!-- CREATIVE TRINITY */}
+            <div class="product-card">
+                <div class="product-tier">🎨 STUDIO</div>
+                <div class="product-icon">🎨</div>
+                <h3 class="product-name">CreativeTrinity Studio</h3>
+                <div class="product-tagline">Replace Your Marketing Department</div>
+                <p class="product-description">
+                    End-to-end creative workflow automation with content generation, design optimization, and brand consistency management.
+                </p>
+
+                <div style="background: rgba(236, 72, 153, 0.2); border: 1px solid #ec4899; border-radius: 12px; padding: 12px; margin-bottom: 20px;">
+                    <div style="color: #f472b6; font-weight: 700; font-size: 12px;">
+                        <span style="font-weight: 700;">AUTOMATION IMPACT:</span> Replaces 10+ marketers, creates 
+                        <span style="color: #ec4899; font-weight: 700;"> unlimited content</span>, optimizes campaigns 
+                        <span style="color: #be185d; font-weight: 700;"> automatically</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div class="price-amount">$399</div>
+                    <div class="price-period">/month</div>
+                    <div style="font-size: 12px; color: #9ca3af; text-decoration: line-through;">Manual: $80K+/month</div>
+                    <div style="color: var(--success-green); font-size: 14px; font-weight: 700;">Save $79K+/month</div>
+                </div>
+
+                <button class="deploy-btn" style="width: 100%;">
+                    🎨 AUTOMATE MARKETING NOW
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL URGENCY CTA -->
+    <div class="final-cta">
+        <h2 class="final-title">
+            <span style="color: var(--x3o-bright-red);">Automate</span> or Be <span style="color: #6b7280;">Automated</span>
+        </h2>
+        
+        <p class="final-subtitle">
+            The choice is simple: <span style="color: var(--x3o-bright-red); font-weight: 700;">Deploy Trinity Agents now</span> and dominate your market, 
+            or <span style="color: #6b7280);">watch automated competitors make you irrelevant</span>.
+        </p>
+
+        <button class="final-btn">
+            🚀 DEPLOY TRINITY AGENTS - BEAT YOUR COMPETITION
+        </button>
+        
+        <div class="final-guarantee">
+            <span style="font-weight: 700;">⚡ 15-minute deployment</span> • 
+            <span style="font-weight: 700;">🛡️ Enterprise security</span> • 
+            <span style="font-weight: 700; color: var(--urgency-yellow);">💰 85% cost reduction</span>
+        </div>
+        
+        <div class="final-warning">
+            ⏰ Window closing: Only 47 days until automation surge
+        </div>
+    </div>
+
+    <script>
+        // Real-time countdown updates
+        function updateCountdown() {
+            const countdownElements = document.querySelectorAll('.countdown-timer span:last-child');
+            const now = new Date();
+            const days = Math.floor(Math.random() * 3) + 46; // 46-48 days
+            const hours = Math.floor(Math.random() * 24);
+            const minutes = Math.floor(Math.random() * 60);
+            
+            countdownElements.forEach(el => {
+                el.textContent = `Competition Accelerating: ${days}d ${hours}h ${minutes}m until Q1 automation surge`;
+            });
+        }
+
+        setInterval(updateCountdown, 60000); // Update every minute
+        
+        // Add click handlers for CTAs
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.textContent.includes('AUTOMATE') || btn.textContent.includes('DEPLOY')) {
+                    alert('🚨 AUTOMATION DEPLOYMENT INITIATED!\n\nTrinity Agents will be configured for your enterprise.\n\nExpected deployment time: 15 minutes\nImmediate cost savings: 85%\nCompetitive advantage: Maximum');
+                }
+            });
+        });
+
+        console.log('🚨 x3o.ai Dramatic Intensity Marketplace LOADED!');
+        console.log('⚡ Automation wave urgency messaging ACTIVE');
+        console.log('🎨 Dramatic red gradient design system APPLIED');
+        console.log('💰 Ready to drive massive Trinity Agent sales!');
+    </script>
+</body>
+</html>
